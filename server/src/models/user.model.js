@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import modelOptions from "./models.options";
 import crypto from "crypto";
+import modelOptions from "./models.options.js";
 
 const userSchema = new mongoose.Schema(
   {
@@ -44,4 +44,4 @@ userSchema.methods.validPassword = function (password) {
 };
 
 const userModel = mongoose.model("User", userSchema);
-export default userSchema;
+export default userModel;
