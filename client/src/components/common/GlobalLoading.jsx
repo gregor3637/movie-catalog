@@ -4,7 +4,7 @@ import { Paper, Box, LinearProgress, Toolbar } from "@mui/material";
 import Logo from "./Logo";
 
 const GlobalLoading = () => {
-  const { globalLoading } = useSelector((state) => state.GlobalLoading);
+  const { globalLoading } = useSelector((state) => state.globalLoading);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
