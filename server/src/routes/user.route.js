@@ -11,35 +11,25 @@ const router = express.Router();
 router.post(
   "/signup",
   body("username")
-    .exists()
-    .withMessage("username is required")
-    .isLength({ min: 8 })
-    .withMessage("username minumum 8 characters")
-    .custom(async (value) => {
+    .exists().withMessage("username is required")
+    .isLength({ min: 4 }).withMessage("username minimum 4 characters")
+    .custom(async value => {
       const user = await userModel.findOne({ username: value });
       if (user) return Promise.reject("username already used");
     }),
   body("password")
-    .exists()
-    .withMessage("password is required")
-    .isLength({ min: 8 })
-    .withMessage("username minumum 8 characters"),
+    .exists().withMessage("password is required")
+    .isLength({ min: 4 }).withMessage("password minimum 4 characters"),
   body("confirmPassword")
-    .exists()
-    .withMessage("confirmPassword is required")
-    .isLength({ min: 8 })
-    .withMessage("confirmPassword minumum 8 characters")
+    .exists().withMessage("confirmPassword is required")
+    .isLength({ min: 4 }).withMessage("confirmPassword minimum 4 characters")
     .custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error("confirmPassword not match");
-      }
+      if (value !== req.body.password) throw new Error("confirmPassword not match");
       return true;
     }),
   body("displayName")
-    .exists()
-    .withMessage("displayName is required")
-    .isLength({ min: 8 })
-    .withMessage("displayName minumum 8 characters"),
+    .exists().withMessage("displayName is required")
+    .isLength({ min: 4 }).withMessage("displayName minimum 4 characters"),
   requestHandler.validate,
   userController.signup
 );
@@ -49,13 +39,13 @@ router.post(
   body("username")
     .exists()
     .withMessage("username is required")
-    .isLength({ min: 8 })
-    .withMessage("username minumum 8 characters"),
+    .isLength({ min: 4 })
+    .withMessage("username minumum 4 characters"),
   body("password")
     .exists()
     .withMessage("password is required")
-    .isLength({ min: 8 })
-    .withMessage("password minumum 8 characters"),
+    .isLength({ min: 4 })
+    .withMessage("password minumum 4 characters"),
   requestHandler.validate,
   userController.signin
 );
@@ -66,18 +56,18 @@ router.put(
   body("password")
     .exists()
     .withMessage("password is required")
-    .isLength({ min: 8 })
-    .withMessage("password minumum 8 characters"),
+    .isLength({ min: 4 })
+    .withMessage("password minumum 4 characters"),
   body("newPassword")
     .exists()
     .withMessage("newPassword is required")
-    .isLength({ min: 8 })
-    .withMessage("newPassword minumum 8 characters"),
+    .isLength({ min: 4 })
+    .withMessage("newPassword minumum 4 characters"),
   body("confirmNewPassword")
     .exists()
     .withMessage("confirmNewPassword is required")
-    .isLength({ min: 8 })
-    .withMessage("confirmNewPassword minumum 8 characters")
+    .isLength({ min: 4 })
+    .withMessage("confirmNewPassword minumum 4 characters")
     .custom((value, { req }) => {
       if (value !== req.body.newPassword) {
         throw new Error("confirmPassword not match");
