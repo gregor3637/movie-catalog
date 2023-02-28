@@ -24,17 +24,17 @@ const SignupForm = ({ switchAuthState }) => {
     },
     validationSchema: Yup.object({
       username: Yup.string()
-        .min(8, "username minimum 8 characters")
+        .min(4, "username minimum 4 characters")
         .required("username is required"),
       password: Yup.string()
-        .min(8, "password minimum 8 characters")
+        .min(4, "password minimum 4 characters")
         .required("password is required"),
       displayName: Yup.string()
-        .min(8, "displayName minimum 8 characters")
+        .min(4, "displayName minimum 4 characters")
         .required("displayName is required"),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("password")], "confirmPassword not match")
-        .min(8, "confirmPassword minimum 8 characters")
+        .min(4, "confirmPassword minimum 4 characters")
         .required("confirmPassword is required")
     }),
     onSubmit: async values => {
