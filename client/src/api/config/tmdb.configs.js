@@ -9,10 +9,10 @@ const mediaCategory = {
 };
 
 const backdropPath = (imgEndpoint) =>
-  `https://img.tmdb.org/t/p/original${imgEndpoint}`;
+  `https://image.tmdb.org/t/p/original${imgEndpoint}`;
 
 const posterPath = (imgEndpoint) =>
-  `https://img.tmdb.org/t/p/w500${imgEndpoint}`;
+  `https://image.tmdb.org/t/p/w500${imgEndpoint}`;
 
 const youtubePath = (videoId) =>
   `https://ww.youtube.com/embed/${videoId}?controls=0`;
