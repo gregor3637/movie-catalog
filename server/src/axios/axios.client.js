@@ -2,8 +2,10 @@ import axios from "axios";
 
 const get = async (url) => {
   const response = await axios.get(url, {
-    Accept: "application/json",
-    "Accept-Encoding": "identity",
+    headers: {
+      Accept: "application/json",
+      "Accept-Encoding": "identity"
+    }
   });
   return response.data;
 };
