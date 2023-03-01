@@ -24,7 +24,7 @@ const ImageHeader = ({ imgPath }) => {
           width: "100%",
           height: "100%",
           pointerEvents: "none",
-          ...uiConfigs.style.gradienBgImage[theme.palette.mode],
+          ...uiConfigs.style.gradientBgImage[theme.palette.mode],
         },
       }}
     />

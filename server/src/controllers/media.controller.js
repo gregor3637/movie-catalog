@@ -65,7 +65,7 @@ const getDetail = async (req, res) => {
 
     const recommend = await tmdbApi.mediaRecommend(params);
 
-    media.recommend = recommend.result;
+    media.recommend = recommend.results;
 
     media.images = await tmdbApi.mediaImages(params);
 
@@ -82,6 +82,8 @@ const getDetail = async (req, res) => {
         media.isFavorite = isFavorite !== null;
       }
     }
+
+    
 
     media.reviews = await reviewModel
       .find({ mediaId })
