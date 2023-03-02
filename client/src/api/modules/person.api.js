@@ -1,4 +1,4 @@
-import publicClient from "../client/public.client";
+import privateClient from "../client/private.client";
 
 const personEndpoints = {
   detail: ({ personId }) => `person/${personId}`,
@@ -13,7 +13,7 @@ const personApi = {
       );
 
       return { response };
-    } catch (error) {
+    } catch (err) {
       return { err };
     }
   },
@@ -24,7 +24,7 @@ const personApi = {
       );
 
       return { response };
-    } catch (error) {
+    } catch (err) {
       return { err };
     }
   },
