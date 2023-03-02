@@ -12,9 +12,9 @@ const addFavorite = async (req, res) => {
 
     const favorite = new favoriteModel({
       ...req.body,
-      user: req.userid,
+      user: req.user.id ,
     });
-
+   
     await favorite.save();
 
     responseHandler.created(res, favorite);
@@ -26,18 +26,23 @@ const addFavorite = async (req, res) => {
 const removeFavorite = async (req, res) => {
   try {
     const { favoriteId } = req.params;
+    console.log("🚀 ~ file: favorite.controller.js:29 ~ removeFavorite ~ favoriteId:", favoriteId)
+    console.log("🚀 ~ file: favorite.controller.js:29 ~ removeFavorite ~ req.user.id:", req.user.id)
 
-    const favorite = await favoriteModel.findOne({
+    console.log("🚀 ~ file:000000000000 :");
+    const fav = await favoriteModel.findOne({
       user: req.user.id,
-      _id: favoriteId,
+      mediaId: favoriteId.toString()
     });
+    console.log("🚀 ~ file:11111111111 :");
 
-    if (!favorite) return responseHandler.notfound(res);
+    if (!fav) return responseHandler.notfound(res);
 
-    await favorite.remove();
+    await fav.remove();
 
     responseHandler.ok(res);
   } catch (error) {
+    console.log('errrrrrrrrrrrrrrrrrrrrrrr')
     responseHandler.error(res);
   }
 };

@@ -19,7 +19,6 @@ const MainLayout = () => {
   useEffect(() => {
     const authUser = async () => {
       const { response, err } = await userApi.getInfo();
-      // console.log("🚀 ~ file: MainLayout.jsx:21 ~ authUser ~ response:", response)
 
       if (response) dispatch(setUser(response));
       if (err) dispatch(setUser(null));
@@ -57,6 +56,7 @@ const MainLayout = () => {
 
         {/* main */}
         <Box component="main" flexGrow={1} overflow="hidden" minHeight="100vh">
+          <div>aaaaaaaaaaaaaa</div>
           <Outlet />
         </Box>
         {/* main */}

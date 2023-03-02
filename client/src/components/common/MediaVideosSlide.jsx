@@ -12,7 +12,6 @@ const MediaVideo = ({ video }) => {
     const height = iframeRef.current.offsetWidth * 9 / 16 + "px";
     iframeRef.current.setAttribute("height", height);
 
-    console.log("🚀 ~ file: MediaVideosSlide.jsx:16 ~ useEffect ~ key:", tmdbConfigs.youtubePath(video.key))
   }, [video]);
 
   return (
@@ -30,7 +29,6 @@ const MediaVideo = ({ video }) => {
 };
 
 const MediaVideosSlide = ({ videos }) => {
-  console.log("🚀 ~ file: MediaVideosSlide.jsx:31 ~ MediaVideosSlide ~ videos:", videos)
   return (
     <NavigationSwiper>
       {videos.map((video, index) => (

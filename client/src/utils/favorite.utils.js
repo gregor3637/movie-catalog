@@ -7,5 +7,5 @@ const favoriteUtils = {
     );
   },
 };
-
+ 
 export default favoriteUtils;
