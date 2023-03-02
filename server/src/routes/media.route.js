@@ -1,6 +1,8 @@
 import express from 'express'
 import mediaController from '../controllers/media.controller.js'
 
+import interceptor from '../middlewares/interceptor.middleware.js'
+
 const router = express.Router({mergeParams: true});
 
 router.get('/search', mediaController.search)
